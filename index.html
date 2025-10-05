@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glyphsmith: Math Tongue</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div class="branding">
+          <h1>Glyphsmith</h1>
+          <p>Speak in the language of math to weave reality.</p>
+        </div>
+        <button class="button button--primary" id="startButton">Start Casting</button>
+      </header>
+
+      <section class="status" aria-live="polite">
+        <div class="status__item">
+          <span class="status__label">Score</span>
+          <span class="status__value" id="score">0</span>
+        </div>
+        <div class="status__item">
+          <span class="status__label">Streak</span>
+          <span class="status__value" id="streak">0</span>
+        </div>
+        <div class="status__item">
+          <span class="status__label">Level</span>
+          <span class="status__value" id="level">1</span>
+        </div>
+        <div class="status__item">
+          <span class="status__label">Stage</span>
+          <span class="status__value" id="stage">1</span>
+        </div>
+        <div class="status__item">
+          <span class="status__label">Time</span>
+          <span class="status__value" id="timer">--</span>
+        </div>
+      </section>
+
+      <section class="battlefield" aria-live="polite">
+        <div class="challenge">
+          <div class="challenge__prompt">Target Glyph</div>
+          <div class="challenge__value" id="target">Press start</div>
+        </div>
+        <div class="challenge challenge--glyphs">
+          <div class="challenge__prompt">Glyph Bank</div>
+          <ul class="glyphs" id="glyphBank" aria-live="polite"></ul>
+        </div>
+        <div class="challenge challenge--meter">
+          <div class="meter">
+            <div class="meter__fill" id="timeMeter"></div>
+          </div>
+          <p class="meter__label">
+            Craft an incantation using the glyphs. Bonus for using all digits.
+          </p>
+        </div>
+      </section>
+
+      <section class="encounter" aria-live="polite">
+        <div class="encounter__header">
+          <h2 id="encounterTitle">Dormant Rift</h2>
+          <span class="encounter__stage">Stage <span id="encounterStage">1</span></span>
+        </div>
+        <p class="encounter__narrative" id="encounterLore">
+          Stabilize the realm by matching the target glyphs.
+        </p>
+        <div class="encounter__health">
+          <div class="encounter__bar">
+            <div class="encounter__fill" id="encounterHealth"></div>
+          </div>
+          <span class="encounter__hp" id="encounterHP">-- / -- stability</span>
+        </div>
+        <div class="encounter__objective">
+          <h3>Sigil Condition</h3>
+          <p id="sigilCondition">Complete a cast to reveal the realm.</p>
+          <p class="encounter__bonus" id="sigilReward">Bonus ready.</p>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="workspace__display" role="status" aria-live="polite">
+          <span id="expression">&nbsp;</span>
+        </div>
+        <div class="keyboard" role="group" aria-label="Glyph keyboard">
+          <div class="keyboard__row" id="digitKeys"></div>
+          <div class="keyboard__row" id="operatorKeys"></div>
+          <div class="keyboard__row keyboard__row--controls">
+            <button class="button" data-action="undo">Undo</button>
+            <button class="button" data-action="clear">Clear</button>
+            <button class="button button--primary" data-action="cast">Cast</button>
+          </div>
+        </div>
+        <div class="artifacts" role="group" aria-label="Artifacts">
+          <button class="button button--ghost" data-artifact="stabilize" id="stabilizeButton">
+            Stabilize Flow (<span id="stabilizeCount">0</span>)
+          </button>
+          <button class="button button--ghost" data-artifact="reshuffle" id="reshuffleButton">
+            Reforge Glyphs (<span id="reshuffleCount">0</span>)
+          </button>
+        </div>
+        <p class="workspace__hint" id="hint"></p>
+      </section>
+
+      <section class="chronicle" aria-live="polite">
+        <h2>Spell Chronicle</h2>
+        <ul class="chronicle__log" id="historyLog"></ul>
+      </section>
+
+      <section class="codex">
+        <h2>Codex of Play</h2>
+        <ol>
+          <li>Tap <strong>Start Casting</strong> to awaken a new challenge.</li>
+          <li>
+            Use the glyph keyboard or your own keys to compose an expression that
+            evaluates exactly to the <strong>Target Glyph</strong>.
+          </li>
+          <li>
+            You may only use digits from the <strong>Glyph Bank</strong>, but you
+            can reuse them as needed. Using every digit at least once grants a
+            combo multiplier.
+          </li>
+          <li>
+            Each correct cast increases your streak, score, and compresses the
+            time window.
+          </li>
+          <li>
+            Trip up, and the streak resets while the realm destabilizes.
+          </li>
+        </ol>
+        <p class="codex__tip">
+          Tip: Parentheses and exponents (^) make potent incantations.
+        </p>
+      </section>
+    </main>
+    <script src="script.js" defer></script>
+  </body>
+</html>
