@@ -106,7 +106,13 @@
             Reforge Glyphs (<span id="reshuffleCount">0</span>)
           </button>
         </div>
-        <p class="workspace__hint" id="hint"></p>
+        <p
+          class="workspace__hint"
+          id="hint"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        ></p>
       </section>
 
       <section class="chronicle" aria-live="polite">
@@ -116,25 +122,60 @@
 
       <section class="codex">
         <h2>Codex of Play</h2>
-        <ol>
-          <li>Tap <strong>Start Casting</strong> to awaken a new challenge.</li>
-          <li>
-            Use the glyph keyboard or your own keys to compose an expression that
-            evaluates exactly to the <strong>Target Glyph</strong>.
-          </li>
-          <li>
-            You may only use digits from the <strong>Glyph Bank</strong>, but you
-            can reuse them as needed. Using every digit at least once grants a
-            combo multiplier.
-          </li>
-          <li>
-            Each correct cast increases your streak, score, and compresses the
-            time window.
-          </li>
-          <li>
-            Trip up, and the streak resets while the realm destabilizes.
-          </li>
-        </ol>
+        <div class="codex__section">
+          <h3>Objective</h3>
+          <p>
+            Shape an expression with the available glyphs so it resolves exactly
+            to the <strong>Target Glyph</strong>. Every successful cast chips
+            away at the encounter's stability bar.
+          </p>
+        </div>
+        <div class="codex__section">
+          <h3>Round Flow</h3>
+          <ol>
+            <li>
+              Tap <strong>Start Casting</strong> to awaken the first challenge —
+              the temporal meter begins immediately.
+            </li>
+            <li>
+              Use the glyph keyboard (or your own keys) to weave digits from the
+              <strong>Glyph Bank</strong> together with operators.
+            </li>
+            <li>
+              Press <strong>Cast</strong> (or Enter) to resolve the spell. Only
+              digits from the bank are allowed, but you may reuse them freely.
+            </li>
+            <li>
+              Match the target exactly to score, extend your streak, satisfy the
+              current <strong>Sigil Condition</strong>, and blast the rift for
+              stability damage. Using every digit at least once adds a combo
+              multiplier.
+            </li>
+            <li>
+              Miscasts or an empty meter reset your streak and shake the realm,
+              but the next challenge is conjured instantly.
+            </li>
+          </ol>
+        </div>
+        <div class="codex__section">
+          <h3>Encounters &amp; Finishes</h3>
+          <p>
+            Each stage is a duel with a lurking anomaly. Empty its stability bar
+            through repeated casts to claim artifact rewards and advance. Every
+            new stage tightens the time window and expands the glyph bank — the
+            ritual continues for as long as you can maintain control.
+          </p>
+        </div>
+        <div class="codex__section">
+          <h3>Time, Artifacts, &amp; Breaks</h3>
+          <p>
+            The temporal meter never pauses mid-encounter, so use
+            <strong>Stabilize Flow</strong> to reclaim a moment or
+            <strong>Reforge Glyphs</strong> to refresh your options without
+            penalty. Need a breather? Restarting the ritual resets the run, and
+            the timer rests until you begin again.
+          </p>
+        </div>
         <p class="codex__tip">
           Tip: Parentheses and exponents (^) make potent incantations.
         </p>
